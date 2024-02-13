@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: crm_staging
+    database: de-project-streaming-analytics
+    schema: crm_data
+    tables:
+      - name: crm_raw

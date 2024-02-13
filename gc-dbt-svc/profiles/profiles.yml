@@ -1,0 +1,25 @@
+de_project_streaming_analytics:
+  target: dev
+  outputs:
+    dev:
+        type: bigquery
+        method: service-account-json
+        project: de-project-streaming-analytics
+        dataset: streaming_analytics_dbt
+        threads: 4 # Must be a value of 1 or greater
+        OPTIONAL_CONFIG: VALUE
+
+        # These fields come from the service account json keyfile
+        keyfile_json:
+          type: "service_account"
+          project_id: "de-project-streaming-analytics"
+          private_key_id: "{{ env_var('PRIVATE_KEY_ID') }}"
+          private_key: "{{ env_var('PRIVATE_KEY') }}"
+          client_email: "{{ env_var('CLIENT_EMAIL') }}"
+          client_id: "103119156796039748512"
+          auth_uri: "https://accounts.google.com/o/oauth2/auth"
+          token_uri: "https://oauth2.googleapis.com/token"
+          auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+          client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/dpeter-service-account%40de-project-streaming-analytics.iam.gserviceaccount.com"
+
+  
